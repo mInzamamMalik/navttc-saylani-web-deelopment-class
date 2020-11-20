@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form onsubmit="abc()">
+        <input id="number1" type="number" placeholder="enter a number" required>
+        <input id="number2" type="number" placeholder="enter second number" required>
+
+        <button>Add</button>
+    </form>
+
+    <script>
+        // var message1 = "thank you "
+        // var message2 = "for your input";
+        // let message3 = "!"
+
+        // console.log("sdsdff!" + (3 - 4));
+
+
+        // console.log(     isNaN("322m34")       );
+        //////////////////////////
+        // let number1 = prompt("please enter a number");
+        // let number2 = prompt("please enter second number");
+
+        // number1 = parseInt(number1)
+        // number2 = parseInt(number2)
+
+        // alert(number1 + number2);
+
+
+        function abc() {
+
+            let number1 = document.getElementById("number1").value
+            let number2 = document.getElementById("number2").value
+
+            number1 = parseInt(number1)
+            number2 = parseInt(number2)
+
+            console.log(number1 + number2);
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
