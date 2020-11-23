@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="#" onsubmit="add()">
+
+        <input type="number" id="num1" required placeholder="enter first number">
+        <input type="number" id="num2" required placeholder="enter second number">
+
+        <button>Add</button>
+    </form> -->
+
+
+    <form action="#" onsubmit="check()">
+        <h1>Should I carry jacket?</h1>
+
+        <input type="number" id="temp" required placeholder="enter current temperature">
+
+        <button>Check</button>
+    </form>
+
+    <p id="result"></p>
+
+
+    <script>
+        // function add() {
+        //     let num1 = document.getElementById("num1").value;
+        //     let num2 = document.getElementById("num2").value;
+
+        //     num1 = parseFloat(num1);
+        //     num2 = parseFloat(num2);
+
+        //     console.log(num1 + num2);
+        // }
+
+        function check() {
+            let temp = document.getElementById("temp").value;
+            temp = parseFloat(temp);
+
+
+            const shouldRun = 1 - temp < 20; // < , > , <= , >= , === , !=
+
+            console.log("shouldRun: ", shouldRun);
+
+            if (shouldRun) {
+                document.getElementById("result").innerHTML = "<h1> carry jacket </h1>"
+            }
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
