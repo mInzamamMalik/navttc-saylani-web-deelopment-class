@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <form action="#" onsubmit="check()">
+        <h1>Should I carry jacket?</h1>
+
+        <input type="number" id="temp" required placeholder="enter current temperature">
+
+        <button>Check</button>
+    </form>
+
+    <p id="result"></p>
+
+
+    <script>
+
+
+        // let num1 = "Pakistan";
+        // num1 = "Habbit"
+
+        // if (num1) {
+        //     alert("code running");
+        // }
+
+
+
+        function check() {
+            let temp = document.getElementById("temp").value;
+            temp = parseFloat(temp);
+
+            // -26
+
+            if (temp < 20 && temp > -25) {
+                document.getElementById("result").innerHTML = "<h1> carry jacket </h1>"
+
+            }
+
+
+            // if (temp < -25) {
+            //     document.getElementById("result").innerHTML = "<h1> you dont wanted to go there </h1>"
+
+            // } else if (temp < -10) {
+            //     document.getElementById("result").innerHTML = "<h1> carry heater </h1>"
+
+            // } else if (temp < 20) {
+
+            //     document.getElementById("result").innerHTML = "<h1> carry jacket </h1>"
+
+            // } else if (temp <= 35) {
+
+            //     document.getElementById("result").innerHTML = "<h1> No need </h1>";
+
+            // } else {
+            //     document.getElementById("result").innerHTML = "<h1> Carry fridge </h1>";
+            // }
+
+
+
+            // Assigment: make a program that takes input of mark obtained and 
+            // total mark and tell the percentage and grade on screen
+            // input form should be validate the input
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
