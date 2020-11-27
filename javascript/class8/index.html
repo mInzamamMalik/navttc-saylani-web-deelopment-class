@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="number"  id="number">
+        <button onclick="tableGenerator()">Generate Table</button>
+    </form>
+
+
+
+
+    <script>
+
+        function tableGenerator(){
+        let Uinput=document.getElementById("number").value;
+        let items = ["rose", 3, 4, 2, 45, 4, 5, 3, "lili", "kanwal", "jasmin", "sunflower"];
+
+        // items.splice(0, 2, "daffodils", "cauliflower")
+        // console.log("after operation: ", items);
+
+        // let newItems = items.slice(-3, -1 )
+        // console.log("new Items: ", newItems);
+
+
+
+        for (let i = 1; i <= 10 ; i= i +1) {
+
+         console.log( Uinput + " X "+ i +"  =" + (i * Uinput) );        
+
+        }
+
+        console.log("after loop");
+
+        }
+    </script>
+</body>
+
+</html>
