@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" onsubmit="addRoll()">
+        <input type="number" id="input" placeholder="enter roll number">
+        <button>Add</button>
+    </form>
+    <p id="allRollNumbers"></p>
+    <button onclick="arrangeRoll()">Arrange</button>
+
+    <h6>Odd roll numbers</h6>
+    <p id="odd"></p>
+    <h6>Even roll numbers</h6>
+    <p id="even"></p>
+
+    <script>
+
+        let arr = [];
+        let even = [];
+        let odd = [];
+
+        function addRoll() {
+            const roll = document.getElementById("input").value;
+            arr.push(roll);
+
+            document.getElementById("allRollNumbers").innerText = arr;
+            document.getElementById("input").value = "";
+        }
+
+        function arrangeRoll() {
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) {
+                    even.push( arr[i]  );
+                }else{
+                    odd.push( arr[i]  );
+                }
+            }
+            document.getElementById("odd").innerHTML = odd;
+            document.getElementById("even").innerText = even;
+        }
+
+    </script>
+
+</body>
+
+</html>
