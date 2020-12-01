@@ -37,12 +37,12 @@ odd numbers: 7, 11, 31
 4. Write a loop program to display the pattern like right angle triangle using an asterisk.
 
 The pattern like :
-
+```
 *
 **
 ***
 ****
-
+```
 5. Write a loop program to display the pattern like right angle triangle with a number.
 
 The pattern like :
