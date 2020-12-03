@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+
+        div>div {
+            width: 5em;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <span>
+            Matrix 1:
+        </span>
+        <div id="mat1"></div>
+    </div>
+
+    <div>
+        <span>
+            Matrix 2:
+        </span>
+        <div id="mat2"></div>
+    </div>
+    <div>
+        <span>
+            Result:
+        </span>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let mat1 = [[0, 0], [0, 0]];
+        let mat2 = [[0, 0], [0, 0]];
+
+        for (let i = 0; i < mat1.length; i++) {
+            for (let j = 0; j < mat1[i].length; j++) {
+
+                console.log("i = ", i, "and j = ", j);
+                mat1[i][j] = +prompt("getting matrix one data, Enter " + i + "," + j + ": ");
+            }
+        }
+        for (let i = 0; i < mat2.length; i++) {
+            for (let j = 0; j < mat2[i].length; j++) {
+
+                console.log("i = ", i, "and j = ", j);
+                mat2[i][j] = +prompt("getting matrix two data, Enter " + i + "," + j + ": ");
+            }
+        }
+
+        console.log(mat1);
+        console.log(mat2);
+
+        let result = [
+            [0, 0],
+            [0, 0]
+        ];
+        for (let i = 0; i < result.length; i++) {
+            for (let j = 0; j < result[i].length; j++) {
+
+                console.log("i = ", i, "and j = ", j);
+
+                // for sum two matrix
+                // result[i][j] = mat1[i][j] + mat2[i][j];  
+
+                result[i][j] = mat1[ ][ ] * mat2[ ][ ] + mat1[ ][ ] * mat2[ ][ ]
+            }
+            // result[i][j] = mat1[0][0] * mat2[0][0] + mat1[0][1] * mat2[1][0]
+            // result[i][j] = mat1[0][0] * mat2[0][1] + mat1[0][1] * mat2[1][1]
+            // result[i][j] = mat1[1][0] * mat2[0][0] + mat1[1][1] * mat2[1][0]
+            // result[i][j] = mat1[1][0] * mat2[0][1] + mat1[1][1] * mat2[1][1]
+
+        }
+        console.log("sum of mat1 and mat2: ", result);
+
+        document.getElementById("mat1").innerHTML = mat1[0] + "<br />" + mat1[1];
+        document.getElementById("mat2").innerHTML = mat2[0] + "<br />" + mat2[1];
+        document.getElementById("result").innerHTML = result[0] + "<br />" + result[1];;
+
+
+    </script>
+</body>
+
+</html>
