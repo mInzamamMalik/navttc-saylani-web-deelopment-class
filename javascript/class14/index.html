@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <span>Matrix 1:</span>
+        <div id="mat1"></div>
+    </div>
+    <div>
+        <span>Matrix 2:</span>
+        <div id="mat2"></div>
+    </div>
+    <div>
+        <span>Result</span>
+        <div id="result"></div>
+    </div>
+
+    <script>
+
+        var mat1 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ];
+        var mat2 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ];
+        var result = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ];
+        var numInput;
+
+        for (let i = 0; i < mat1.length; i++) {
+            for (let j = 0; j < mat1[i].length; j++) {
+                mat1[i][j] = +prompt("taking matrix one data enter" + i + "," + j);
+            }
+        }
+        for (let i = 0; i < mat2.length; i++) {
+            for (let j = 0; j < mat2[i].length; j++) {
+                mat2[i][j] = +prompt("taking matrix one data enter" + i + "," + j);
+            }
+        }
+        for (let i = 0; i < result.length; i++) {
+            for (let j = 0, k = 0; j < result[i].length; j++) {
+               
+                // this line works for 2x2 matric multiply, figure out if it works for 3x3 matrics properly, if not change the line get it working for 3x3 and 2x2 at the same time
+                // result[i][j] = mat1[i][k] * mat2[k][j] + mat1[i][k + 1] * mat2[k + 1][j];;
+            }
+        }
+
+        // result[i][j] = mat1[0][0] * mat2[0][0] + mat1[0][1] * mat2[1][0] + mat1[0][2] * mat2[2][0]
+        // result[i][j] = mat1[0][0] * mat2[0][1] + mat1[0][1] * mat2[1][1] + mat1[0][2] * mat2[2][1]
+        // result[i][j] = mat1[0][0] * mat2[0][2] + mat1[0][1] * mat2[1][2] + mat1[0][2] * mat2[2][2]
+
+        // result[i][j] = mat1[1][0] * mat2[0][0] + mat1[1][1] * mat2[1][0] + mat1[1][2] * mat2[2][0]
+        // result[i][j] = mat1[1][0] * mat2[0][1] + mat1[1][1] * mat2[1][1] + mat1[1][2] * mat2[2][1]
+        // result[i][j] = mat1[1][0] * mat2[0][2] + mat1[1][1] * mat2[1][2] + mat1[1][2] * mat2[2][2]
+
+        // result[i][j] = mat1[2][0] * mat2[0][0] + mat1[2][1] * mat2[1][0] + mat1[2][2] * mat2[2][0]
+        // result[i][j] = mat1[2][0] * mat2[0][1] + mat1[2][1] * mat2[1][1] + mat1[2][2] * mat2[2][1]
+        // result[i][j] = mat1[2][0] * mat2[0][2] + mat1[2][1] * mat2[1][2] + mat1[2][2] * mat2[2][2]
+
+        document.getElementById('mat1').innerHTML = mat1[0] + "<br>" + mat1[1];
+        document.getElementById('mat2').innerHTML = mat2[0] + "<br>" + mat2[1];
+        document.getElementById('result').innerHTML = result[0] + "<br>" + result[1];
+
+
+    </script>
+</body>
+
+</html>
