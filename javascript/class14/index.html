@@ -56,6 +56,14 @@
                
                 // this line works for 2x2 matric multiply, figure out if it works for 3x3 matrics properly, if not change the line get it working for 3x3 and 2x2 at the same time
                 // result[i][j] = mat1[i][k] * mat2[k][j] + mat1[i][k + 1] * mat2[k + 1][j];;
+               
+                result[i][j] = mat1[i][k] * mat2[k][j] + mat1[i][k + 1] * mat2[k + 1][j] ;
+
+                if( mat1[i][k+2] && mat2[k+2][j] ){
+
+                    result[i][j] += ( mat1[i][k+2] * mat2[k+2][j] )
+                }
+
             }
         }
 
