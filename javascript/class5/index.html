@@ -11,7 +11,7 @@
 
 
 
-    <form action="#" onsubmit="check()">
+    <form onsubmit="return check()">
         <h1>Should I carry jacket?</h1>
 
         <input type="number" id="temp" required placeholder="enter current temperature">
@@ -44,6 +44,8 @@
                 document.getElementById("result").innerHTML = "<h1> carry jacket </h1>"
 
             }
+
+            return false;
 
 
             // if (temp < -25) {
