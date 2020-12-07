@@ -1,0 +1,91 @@
+Body {  
+    font-size: 20px;
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-image: url(./im3.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+} 
+.navbar
+{
+    text-align: center;
+padding: 10px;
+}
+.navbar a {
+    text-decoration: none;
+color: rgba(147, 253, 115, 0.911);
+font-size: 20px;
+font-family:  sans-serif;
+margin: 40px;
+border: 2px solid transparent;
+padding: 5px;
+transition: 0.5s;
+
+}
+
+
+.navbar
+{
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    
+}
+
+
+.navbar a:hover
+{
+    background: rgb(34, 43, 42);
+    border: 2px solid black;
+    border-radius: 30%;    
+}
+
+
+.button {   
+       background-color: #4CAF50;   
+       width: 100%;  
+        color: orange;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+ h1{
+     text-align: center;
+     font-size: 40px;
+     color: cyan;
+
+
+
+
+ }        
+ form {   
+        border: 3px solid #f1f1f1; 
+        
+       
+        margin-left: 30%;
+        margin-right: 30%;
+    }   
+ input[type=text], input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid rgb(58, 255, 58);   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  .cancelbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    }   
+        
+     
+ .container {   
+        padding: 25px;   
+        background: linear-gradient(to right, #879fdf, #8ea2c7, #414643);
+        border-radius: 5%;
+    
+    }   

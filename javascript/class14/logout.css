@@ -1,0 +1,45 @@
+Body {  
+    font-family: Calibri, Helvetica, sans-serif;  
+    color: cornsilk;
+    background-image: url(./im4.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+  .navbar
+{
+    text-align: center;
+padding: 10px;
+}
+.navbar a {
+    text-decoration: none;
+color: rgba(248, 249, 255, 0.911);
+font-size: 20px;
+font-family:  sans-serif;
+margin: 40px;
+border: 2px solid transparent;
+padding: 5px;
+transition: 0.5s;
+
+}
+
+
+.navbar
+{
+    box-sizing: border-box;
+    background: linear-gradient(to right, #8dc7ee, #035bff,  #42a8ec);
+      height: 50px;
+    
+}
+
+
+.navbar a:hover
+{
+    background: rgb(0, 0, 0);
+    
+    border-radius: 30%;  }
+
+h1{text-align: center;
+    font-size: 40px;
+
+
+}

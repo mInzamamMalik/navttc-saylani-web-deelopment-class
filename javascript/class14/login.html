@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="login.css">
+
+<body>
+
+    <div class="navbar">
+        <a href="#">Login</a>
+        <a href="index.html">Signup</a>
+        <a href="logout.html">Logout</a>
+
+    </div>
+    <h1>Login Form <img src="./hand.png" width="80px" height="60px" alt="join"> </h1>
+    </h1>
+
+    <br>
+    <br>
+    <div class="login">
+        <form onsubmit="return login()">
+            <div class="container">
+                E-mail:
+                <input type="text" placeholder="email@gmail.com" id="email" required="required">
+                <br>
+                <br>
+                Password :
+                <input type="password" placeholder="*********" id="password" required="required">
+                <br>
+                <br>
+                <button>Login</button>
+                <!-- <input type="reset" value="Cancel" /> -->
+            </div>
+
+    </div>
+    </form>
+    <script>
+
+
+        var names = JSON.parse(localStorage.getItem("name"))
+        var emails = JSON.parse(localStorage.getItem("email"))
+        var passwords = JSON.parse(localStorage.getItem("password"))
+
+
+
+        function login() {
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            let isFound = false;
+
+
+            for (let i = 0; i < emails.length; i++) {
+                if (email === emails[i]) {
+                    isFound = i;
+                    break;
+                }
+            }
+
+            if (isFound === false) {
+                alert("user not found")
+            } else if (passwords[isFound] === password) {
+
+                alert("login success");
+                window.location.href = "./dashboard"
+           
+            } else {
+                alert("Error Password or Username")
+            }
+
+
+            return false;
+        }
+    </script>
