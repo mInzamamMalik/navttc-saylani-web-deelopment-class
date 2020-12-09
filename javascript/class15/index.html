@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="abc"></div>
+
+
+    <div>
+        <h1>Pakistan Time: </h1>
+        <h3 id="pkTime"></h3>
+    </div>
+    <div>
+        <h1>Saudi Time: </h1>
+        <h3 id="ksaTime"></h3>
+    </div>
+    <script>
+
+
+        function pluck(arr) {
+            const randIndex = Math.floor(Math.random() * arr.length);
+            return arr[randIndex];
+        }
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+
+        getRandomInt(4, 46)
+
+
+        setInterval(function () {
+
+
+            // document.getElementById("abc").innerText = ("hello: ", new Date().getSeconds() )
+
+            let rightNow = new Date();
+
+            document.getElementById("pkTime").innerText = rightNow.toLocaleString();
+
+            let ksaTime = new Date();
+
+            ksaTime.setHours(ksaTime.getHours() - 2)
+
+            document.getElementById("ksaTime").innerText = ksaTime.toLocaleString();
+
+        }, 1000)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
