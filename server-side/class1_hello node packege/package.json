@@ -1,0 +1,20 @@
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cls && node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no-repo"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "M Inzamam Malik (malikasinger@gmail.com)",
+  "license": "MIT"
+}
