@@ -31,7 +31,7 @@ app.get("/bulb", function (req, res, next) {
 app.post("/bulb", function (req, res, next) {
 
     console.log("body: ", req.body);
-    res.send("bulb is created");
+    res.send("bulb is created: " + JSON.stringify(req.body));
 });
 
 app.put("/bulb", function (req, res, next) {

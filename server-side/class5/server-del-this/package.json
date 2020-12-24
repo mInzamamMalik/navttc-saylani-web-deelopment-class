@@ -1,0 +1,27 @@
+{
+  "name": "login",
+  "version": "6.14.8",
+  "description": "login page with server",
+  "main": "server/server.js",
+  "homepage": "https://malikasinger1.github.io/server-del-this",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cls && node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no-repo"
+  },
+  "author": "M Abdullah",
+  "license": "MIT"
+}
