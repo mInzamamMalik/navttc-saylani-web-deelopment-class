@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="socket.io.js"></script>
 
 </head>
 
@@ -15,7 +15,7 @@
 
 
     <script>
-        var socket = io("http://localhost:5000/test");
+        var socket = io("http://localhost:5000/");
 
 
         socket.on('connection', (socket) => {

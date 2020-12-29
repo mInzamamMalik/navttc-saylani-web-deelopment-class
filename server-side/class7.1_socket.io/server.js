@@ -7,13 +7,6 @@ var bodyParser = require('body-parser');
 var http = require("http");
 var socket = require('socket.io');
 
-var server = http.createServer(app);
-var io = socket(server, {
-    path: '/test'
-
-});
-
-
 
 var app = express();
 var PORT = process.env.PORT || 5000;
@@ -26,11 +19,10 @@ app.use("/", express.static(path.join(__dirname, 'public')))
 
 
 
+var server = http.createServer(app);
+var io = socket(server);
 
 
-server.listen(PORT, () => {
-    console.log("server is running on: ", PORT);
-})
 
 io.on('connection', (userAdress) => {
     console.log('a user connected');
@@ -44,3 +36,7 @@ io.on('disconnect', (socket) => {
 
 
 
+
+server.listen(PORT, () => {
+    console.log("server is running on: ", PORT);
+})
