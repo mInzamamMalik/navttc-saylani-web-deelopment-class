@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="socket.io.js"></script>
+
+  </head>
+<body >
+
+<div class="testbox">
+  <h1>Registration</h1>
+
+  <form  method="POST" onsubmit="return signup();">
+      <hr>
+    <div class="accounttype">
+        <p>Already a member?</p>
+        <a href="login.html">Login</a>
+    </div>
+  <hr>
+  <label id="icon" ><img src="./image/identity.png" alt=""></label>
+  <input type="text" id="name" placeholder="Name" required/>
+  
+  <label id="icon" ><img src="./image/email.png" alt=""></label>
+  <input type="email"id="email" placeholder="Email" required/>
+  
+  <label id="icon"><img src="./image/lock.png" alt=""></label>
+  <input type="password"  id="password" placeholder="Password" required/>
+  
+  <div class="gender">
+    <input type="radio" id="male" name="gender" checked/>
+    <label for="male" class="radio" chec>Male</label>
+    <input type="radio"  id="female" name="gender" />
+    <label for="female" class="radio">Female</label>
+   </div> 
+   <p class="signuptext">By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+   <button class="button">Register</button>
+  </form>
+</div>
+
+<script src="app.js"></script>
+    
+</body>
+</html>
