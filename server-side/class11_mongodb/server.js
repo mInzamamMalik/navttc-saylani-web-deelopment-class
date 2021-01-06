@@ -90,12 +90,74 @@ app.post("/signup", (req, res, next) => {
     // https://mongoosejs.com/docs/models.html#constructing-documents
     newUser.save((err, data) => {
         if (!err) {
-            res.send("user created")
+            res.send({
+                message: "user created"
+            })
         } else {
             console.log(err);
-            res.status(500).send("user create error, " + err)
+            res.status(500).send({
+                message: "user create error, " + err
+            })
         }
     });
+
+    // read: 
+    // Querying/reading data from database: https://mongoosejs.com/docs/models.html#querying
+    // deleting data from database: https://mongoosejs.com/docs/models.html#deleting
+    // updating data in database: https://mongoosejs.com/docs/models.html#updating
+
+})
+
+app.post("/login", (req, res, next) => {
+
+    if (!req.body.email || !req.body.password) {
+
+        res.status(403).send(`
+            please send email and passwod in json body.
+            e.g:
+            {
+                "email": "malikasinger@gmail.com",
+                "password": "abc",
+            }`)
+        return;
+    }
+
+    userModel.findOne({ email: req.body.email },
+        function (err, user) {
+            if (err) {
+                res.status(500).send({
+                    message: "an error occured: " + JSON.stringify(err)
+                });
+            } else if (user) {
+
+
+                if (user.password === req.body.password) {
+                    res.send({
+                        message: "login success",
+                        user: {
+                            name: user.name,
+                            email: user.email,
+                            phone: user.phone,
+                            gender: user.gender,
+                        }
+                    });
+                } else {
+                    res.status(401).send({
+                        message: "incorrect password"
+                    })
+                }
+
+
+            } else {
+                res.status(403).send({
+                    message: "user not found"
+                });
+            }
+
+
+
+        });
+
 
     // read: 
     // Querying/reading data from database: https://mongoosejs.com/docs/models.html#querying
