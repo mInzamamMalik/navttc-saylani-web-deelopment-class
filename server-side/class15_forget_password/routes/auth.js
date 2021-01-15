@@ -3,12 +3,9 @@ var bcrypt = require("bcrypt-inzi");
 var jwt = require('jsonwebtoken'); // https://github.com/auth0/node-jsonwebtoken
 var postmark = require("postmark");
 var { SERVER_SECRET } = require("../core/index");
+var { userModel, otpModel } = require("../dbrepo/models"); // problem was here, notice two dots instead of one
 
 var client = new postmark.Client("ENTER YOUR POSTMARK TOKEN");
-
-
-var { userModel, otpModel } = require("../dbrepo/models"); // problem was here, notice two dots instead of one
-console.log("userModel: ", userModel);
 
 var api = express.Router();
 
@@ -165,7 +162,6 @@ api.post("/logout", (req, res, next) => {
 api.post("/forget-password", (req, res, next) => {
 
     if (!req.body.email) {
-
         res.status(403).send(`
             please send email in json body.
             e.g:
@@ -218,7 +214,6 @@ api.post("/forget-password", (req, res, next) => {
 api.post("/forget-password-step-2", (req, res, next) => {
 
     if (!req.body.email && !req.body.otp && !req.body.newPassword) {
-
         res.status(403).send(`
             please send email & otp in json body.
             e.g:
@@ -240,8 +235,6 @@ api.post("/forget-password-step-2", (req, res, next) => {
 
                 otpModel.find({ email: req.body.email },
                     function (err, otpData) {
-
-                        
 
                         if (err) {
                             res.status(500).send({

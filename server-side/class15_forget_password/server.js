@@ -8,36 +8,33 @@ var jwt = require('jsonwebtoken'); // https://github.com/auth0/node-jsonwebtoken
 var path = require("path")
 var { userModel } = require("./dbrepo/models");
 var authRoutes = require("./routes/auth");
-var { SERVER_SECRET } = require("./core/index");
-
-console.log("module: ", userModel);
 
 
 var app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(morgan('dev'));
 
 app.use(cors({
     origin: '*',
     credentials: true
 }));
 
-app.use(morgan('dev'));
-
-
 app.get("/download", (req, res) => {
-
     console.log(__dirname);
-
     res.sendFile(path.resolve(path.join(__dirname, "/package.json")))
+})
+app.post("/testing", (req,res,next)=>{
+
+    res.status(500).send("something went wrong on server");
+
 })
 
 app.use("/auth", authRoutes)
 
 
 app.use(function (req, res, next) {
-
     console.log("req.cookies: ", req.cookies);
     if (!req.cookies.jToken) {
         res.status(401).send("include http-only credentials with every request")
@@ -45,7 +42,6 @@ app.use(function (req, res, next) {
     }
     jwt.verify(req.cookies.jToken, SERVER_SECRET, function (err, decodedData) {
         if (!err) {
-
             const issueDate = decodedData.iat * 1000;
             const nowDate = new Date().getTime();
             const diff = nowDate - issueDate; // 86400,000
@@ -89,8 +85,6 @@ app.get("/profile", (req, res, next) => {
             }
         })
 })
-
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
