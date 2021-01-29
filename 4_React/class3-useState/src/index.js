@@ -10,6 +10,9 @@ function Room() {
   function abc() {
     setValue((previousValue) => !previousValue)
   }
+
+
+  
   return (
     <div>
       <div > the room is   {(value === true) ? "Bright" : "Dark"}    </div>
