@@ -1,23 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import React from "react";
+
 
 function App() {
+
+  const [posts, setPosts] = React.useState([]);
+  const [click, setClick] = React.useState(true);
+
+
+
+  React.useEffect(() => {
+
+    console.log("I M RUNING");
+
+    axios.get(`https://www.reddit.com/r/reactjs.json`)
+      .then(res => {
+        const newPosts = res.data.data.children
+          .map(obj => obj.data);
+  
+        setPosts(newPosts);
+      });
+
+
+  }, [click]);
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>/r/reactjs</h1> 
+
+      <button onClick={ ()=>setClick(!click)  }>Reload</button>
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>{post.title}</li>
+
+          
+        ))}
+      </ul>
     </div>
   );
 }
