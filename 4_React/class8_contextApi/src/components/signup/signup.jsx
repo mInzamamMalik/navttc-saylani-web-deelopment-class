@@ -8,11 +8,7 @@ function Signup() {
 
     var history = useHistory();
     function handleClick() {
-        history.push("/"); 
-        
-        // docs: 
-        // https://stackoverflow.com/a/42121109/4378475
-        // https://reactrouter.com/web/api/history
+        history.push("/login");
     }
 
     return (

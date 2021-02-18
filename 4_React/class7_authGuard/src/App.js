@@ -3,18 +3,23 @@ import './App.css';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
-} from "react-router-dom";
+  Link,
+  Redirect,
+  useLocation,
+  useHistory
+} from 'react-router-dom'
 
 
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
 import Dashboard from "./components/dashboard/dashboard"
 
+import fakeAuth from "./components/auth"
+
+
 function App() {
- 
+
   return (
     <div >
 
@@ -35,33 +40,35 @@ function App() {
         </nav>
 
 
-        <button onClick={
-          () => {
-            window.location.href = "./dashboard"
-          }
-        }> goto dashboard usin button click </button>
+        <Route exact={true} path="/">
+          <Login />
+        </Route>
+
+        <Route path="/signup">
+          <Signup />
+        </Route>
 
 
-        <Switch>
+        <PrivateRoute path="/dashboard">
+          <Dashboard />
+        </PrivateRoute>
 
-          <Route exact={true} path="/">
-            <Login />
-          </Route>
-
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-
-          <Route path="/signup">
-            <Signup />
-          </Route>
-
-        </Switch>
 
       </Router>
 
     </div>
   );
+}
+
+
+function PrivateRoute({ children, ...rest }) {
+  return (
+    <Route {...rest} render={({ location }) => {
+      return fakeAuth.isAuthenticated === true
+        ? children
+        : <p>You are not logged in. <Link to="/"> goto login poage</Link></p>
+    }} />
+  )
 }
 
 export default App;

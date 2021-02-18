@@ -1,12 +1,9 @@
-import { SignoutButton } from "./../auth"
-
 
 const Dashboard = () => {
 
-
     return <div>
 
-        <h3>Dashboard</h3> <SignoutButton />
+        <h3>Dashboard</h3>
 
         <p>this is a protexted route</p>
 
