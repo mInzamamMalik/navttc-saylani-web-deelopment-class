@@ -14,15 +14,9 @@ import Signup from "./components/signup/signup"
 import Dashboard from "./components/dashboard/dashboard"
 
 function App() {
+ 
   return (
-    <div className="App">
-
-
-      {/* <Login />
-      <Signup />
-      <Dashboard /> */}
-
-
+    <div >
 
       <Router>
 
@@ -41,31 +35,30 @@ function App() {
         </nav>
 
 
-        <Switch>
+        <button onClick={
+          () => {
+            window.location.href = "./dashboard"
+          }
+        }> goto dashboard usin button click </button>
 
+
+        <Switch>
 
           <Route exact={true} path="/">
             <Login />
           </Route>
 
-
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-
 
           <Route path="/signup">
             <Signup />
           </Route>
 
-
-
-
         </Switch>
 
       </Router>
-
-
 
     </div>
   );
