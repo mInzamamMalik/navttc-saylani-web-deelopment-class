@@ -11,7 +11,7 @@ import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
 import Dashboard from "./components/dashboard/dashboard"
 
-import { useGlobalState, useGlobalStateUpdate } from "./context/themeContext"
+import { useGlobalState, useGlobalStateUpdate } from "./context/globalContext"
 
 function App() {
 

@@ -1,5 +1,5 @@
 
-import { useGlobalState, useGlobalStateUpdate } from "./../../context/themeContext"
+import { useGlobalState, useGlobalStateUpdate } from "./../../context/globalContext"
 
 const Dashboard = () => {
 

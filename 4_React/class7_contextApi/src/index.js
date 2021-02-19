@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { GlobalStateProvider } from "./context/themeContext"
+import { GlobalStateProvider } from "./context/globalContext"
 
 ReactDOM.render(
   <React.StrictMode>
