@@ -6,7 +6,7 @@ const Dashboard = () => {
     const globalState = useGlobalState()
     const setGlobalState = useGlobalStateUpdate()
 
-   
+
 
     return (<div>
 

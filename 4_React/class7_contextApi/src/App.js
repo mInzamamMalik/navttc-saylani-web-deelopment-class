@@ -23,11 +23,10 @@ function App() {
     backgroundColor: globalState.darkTheme ? "#333" : "#ccc",
     color: globalState.darkTheme ? "#ccc" : "#333",
     padding: "2rem",
-    margin: "2rem"
-  }
+   }
   const navStyles = {
     display: "inline",
-    border: globalState.darkTheme ? "1px solid white": "1px solid black",
+    border: globalState.darkTheme ? "1px solid white" : "1px solid black",
     padding: "5px",
     marginLeft: "5px"
   }
@@ -43,14 +42,11 @@ function App() {
             <li style={navStyles}>  <Link to="/signup">Signup</Link>     </li>
             <li style={navStyles}>  <Link to="/dashboard">Dashboard</Link>     </li>
             <button style={navStyles} onClick={() => setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))} >toggle</button>
-            
+
             {"===>" + JSON.stringify(globalState)}
 
           </ul>
         </nav>
-
-
-
 
 
 
@@ -62,10 +58,11 @@ function App() {
           <Signup />
         </Route>
 
+        
         <Route path="/dashboard">
           <Dashboard />
         </Route>
-
+      
 
       </Router >
     </div>
