@@ -1,15 +1,25 @@
-import { SignoutButton } from "./../auth"
 
+import { useGlobalState, useGlobalStateUpdate } from "./../../context/themeContext"
 
 const Dashboard = () => {
 
+    const globalState = useGlobalState()
+    const setGlobalState = useGlobalStateUpdate()
 
-    return <div>
 
-        <h3>Dashboard</h3> <SignoutButton />
+
+    return (<div>
+
+        <h1>Dashboard</h1>
+        <button onClick={() => {
+            setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
+        }}
+
+        >toggle</button>
+        {"===>" + JSON.stringify(globalState)}
 
         <p>this is a protexted route</p>
 
-    </div>
+    </div>)
 }
 export default Dashboard;
