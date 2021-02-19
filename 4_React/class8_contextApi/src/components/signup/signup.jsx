@@ -2,18 +2,32 @@ import {
     useHistory
 } from "react-router-dom";
 
+import { useGlobalState, useGlobalStateUpdate } from "./../../context/themeContext"
 
 
 function Signup() {
 
+
+    const globalState = useGlobalState()
+    const setGlobalState = useGlobalStateUpdate()
+
+
     var history = useHistory();
     function handleClick() {
-        history.push("/login");
+        history.push("/");
     }
 
     return (
         <div>
             <h1>Signup</h1>
+
+            <button onClick={() => {
+                setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
+            }}
+
+            >toggle</button>
+
+            {"===>" + JSON.stringify(globalState)}
 
 
             <br /> name:  <input type="text" />

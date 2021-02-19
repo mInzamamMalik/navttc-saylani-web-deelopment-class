@@ -3,7 +3,7 @@ function Login() {
 
     return (
         <div>
-            <h3>this is login page</h3>
+            <h1>Login:</h1>
 
             Email: <input type="email" />
             <br />

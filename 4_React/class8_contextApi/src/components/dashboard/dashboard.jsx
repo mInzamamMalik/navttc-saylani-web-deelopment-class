@@ -1,12 +1,25 @@
 
+import { useGlobalState, useGlobalStateUpdate } from "./../../context/themeContext"
+
 const Dashboard = () => {
 
-    return <div>
+    const globalState = useGlobalState()
+    const setGlobalState = useGlobalStateUpdate()
 
-        <h3>Dashboard</h3>
+   
+
+    return (<div>
+
+        <h1>Dashboard</h1>
+        <button onClick={() => {
+            setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
+        }}
+
+        >toggle</button>
+        {"===>" + JSON.stringify(globalState)}
 
         <p>this is a protexted route</p>
 
-    </div>
+    </div>)
 }
 export default Dashboard;

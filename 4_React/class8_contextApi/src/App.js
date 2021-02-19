@@ -4,41 +4,72 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React, { useContext } from "react";
+
 
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
 import Dashboard from "./components/dashboard/dashboard"
 
+import { useGlobalState, useGlobalStateUpdate } from "./context/themeContext"
 
 function App() {
 
-  return (<Router>
-
-    <nav>
-      <ul>
-      
-        <li>  <Link to="/">login</Link>     </li>
-        <li>  <Link to="/signup">Signup</Link>     </li>
-        <li>  <Link to="/dashboard">Dashboard</Link>     </li>
-
-      </ul>
-    </nav>
+  const globalState = useGlobalState()
+  const setGlobalState = useGlobalStateUpdate()
 
 
-    <Route exact={true} path="/">
-      <Login />
-    </Route>
+  const themeStyles = {
+    backgroundColor: globalState.darkTheme ? "#333" : "#ccc",
+    color: globalState.darkTheme ? "#ccc" : "#333",
+    padding: "2rem",
+    margin: "2rem"
+  }
+  const navStyles = {
+    display: "inline",
+    border: globalState.darkTheme ? "1px solid white": "1px solid black",
+    padding: "5px",
+    marginLeft: "5px"
+  }
 
-    <Route path="/signup">
-      <Signup />
-    </Route>
+  return (
+    <div style={themeStyles}>
 
-    <Route path="/dashboard">
-      <Dashboard />
-    </Route>
+      <Router>
+
+        <nav>
+          <ul>
+            <li style={navStyles}>  <Link to="/">login</Link>     </li>
+            <li style={navStyles}>  <Link to="/signup">Signup</Link>     </li>
+            <li style={navStyles}>  <Link to="/dashboard">Dashboard</Link>     </li>
+            <button style={navStyles} onClick={() => setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))} >toggle</button>
+            
+            {"===>" + JSON.stringify(globalState)}
+
+          </ul>
+        </nav>
 
 
-  </Router>);
+
+
+
+
+        <Route exact={true} path="/">
+          <Login />
+        </Route>
+
+        <Route path="/signup">
+          <Signup />
+        </Route>
+
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+
+
+      </Router >
+    </div>
+  );
 }
 
 export default App;
