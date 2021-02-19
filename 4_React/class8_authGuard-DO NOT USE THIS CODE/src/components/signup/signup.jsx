@@ -2,11 +2,9 @@ import {
     useHistory
 } from "react-router-dom";
 
-import { useGlobalState, useGlobalStateUpdate } from "./../../context/themeContext"
-
+import { useGlobalState, useGlobalStateUpdate } from "./../../context/globalContext"
 
 function Signup() {
-
 
     const globalState = useGlobalState()
     const setGlobalState = useGlobalStateUpdate()
