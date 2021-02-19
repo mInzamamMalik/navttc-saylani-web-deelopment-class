@@ -23,7 +23,7 @@ function App() {
     backgroundColor: globalState.darkTheme ? "#333" : "#ccc",
     color: globalState.darkTheme ? "#ccc" : "#333",
     padding: "2rem",
-   }
+  }
   const navStyles = {
     display: "inline",
     border: globalState.darkTheme ? "1px solid white" : "1px solid black",
@@ -50,19 +50,23 @@ function App() {
 
 
 
-        <Route exact={true} path="/">
-          <Login />
-        </Route>
+        {(globalState.loginStatus === false) ?
+
+          <Route exact={true} path="/">
+            <Login />
+          </Route> :
+
+          <Route path="/">
+            <Dashboard />
+          </Route>}
+
 
         <Route path="/signup">
           <Signup />
         </Route>
 
-        
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-      
+
+
 
       </Router >
     </div>

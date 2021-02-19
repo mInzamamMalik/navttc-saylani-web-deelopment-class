@@ -25,7 +25,7 @@ function Signup() {
 
             >toggle</button>
 
-            {"===>" + JSON.stringify(globalState)}
+            
 
 
             <br /> name:  <input type="text" />

@@ -10,7 +10,9 @@ export const useGlobalStateUpdate = () => useContext(GlobalStateUpdateContext)
 export function GlobalStateProvider({ children }) {
     const [data, setData] = useState({
         user: null,
-        darkTheme: true
+        darkTheme: false,
+        loginStatus: false,
+        token: null
     })
 
     return (

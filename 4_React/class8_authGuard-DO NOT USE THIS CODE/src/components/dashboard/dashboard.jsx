@@ -16,7 +16,6 @@ const Dashboard = () => {
         }}
 
         >toggle</button>
-        {"===>" + JSON.stringify(globalState)}
 
         <p>this is a protexted route</p>
 
