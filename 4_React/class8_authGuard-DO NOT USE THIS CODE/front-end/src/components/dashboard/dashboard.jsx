@@ -11,14 +11,20 @@ const Dashboard = () => {
     return (<div>
 
         <h1>Dashboard</h1>
+
+        <p>this is a protected route</p>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <button onClick={() => {
             setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
         }}
-
         >toggle</button>
-
-        <p>this is a protexted route</p>
-
+        {JSON.stringify(globalState)}
     </div>)
 }
 export default Dashboard;

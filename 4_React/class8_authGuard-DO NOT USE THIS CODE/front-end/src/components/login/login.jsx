@@ -1,26 +1,38 @@
 import { useGlobalState, useGlobalStateUpdate } from "./../../context/globalContext"
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { baseUrl } from "./../../core"
+
+
 function Login() {
 
     const globalState = useGlobalState()
     const setGlobalState = useGlobalStateUpdate()
 
 
-    function handleLogin() {
+    function handleLogin(e) {
+        e.preventDefault()
         axios({
-            url: "https://reqres.in/api/login", // these are fake apis for testing purposes. see more: https://reqres.in/
+            url: baseUrl + "/login",
             method: "POST",
             data: {
-                "email": "eve.holt@reqres.in",
-                "password": "cityslicka"
-            }
+                "email": document.getElementById("email").value,
+                "password": document.getElementById("password").value
+            },
+            withCredentials: true
         }).then(function (response) {
             console.log("response: ", response.data);
 
             setGlobalState(prev => {
-                return { ...prev, loginStatus: true, token: response.data.token }
+                return { ...prev, loginStatus: true }
             })
+
+        }).catch(function (error) {
+            // handle error
+            console.log("error: ==== ", error);
+            if (error && error.response && error.response.status) {
+                console.log("error ==============> ", error.response.status);
+            }
 
         })
     }
@@ -28,21 +40,30 @@ function Login() {
     return (
         <div>
             <h1>Login:</h1>
+            <form onSubmit={handleLogin}>
 
-            Email: <input type="email" />
-            <br />
-            Password: <input type="password" />
-            <br />
+                Email: <input type="email" id="email" placeholder="john@gmail.com" />
+                <br />
+                Password: <input type="password" id="password" placeholder="123456" />
+                <br />
 
-            <button onClick={handleLogin}>Log in</button>
-            <br/>
+                <button>Log in</button>
+            </form>
+            <br />
             <Link to="/forget_password">forget password</Link>
-            <br/>
-            <br/>
+            <br />
+            <br />
 
-
-            {JSON.stringify(globalState)}
-        </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <button onClick={() => {
+                setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
+            }}
+            >toggle</button>
+            {JSON.stringify(globalState)}        </div>
     )
 }
 export default Login;

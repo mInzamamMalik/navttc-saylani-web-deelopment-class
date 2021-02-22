@@ -1,6 +1,7 @@
 
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "../core"
 
 const GlobalStateContext = React.createContext()
 const GlobalStateUpdateContext = React.createContext()
@@ -12,24 +13,26 @@ export function GlobalStateProvider({ children }) {
 
     useEffect(() => {
 
-
-        axios.post('http://localhost:5000/profile')
+        axios({
+            method: "get",
+            url: baseUrl + '/profile',
+            withCredentials: true
+        })
             .then(function (response) {
                 // handle success
                 console.log("response: ", response.status);
+                if (response.status === 200) {
+                    setData(prev => ({ ...prev, loginStatus: true }))
+                }
             })
             .catch(function (error) {
                 // handle error
-                
-                if(error && error.response && error.response.status){
+                console.log("error: ==== ", error);
+                if (error && error.response && error.response.status) {
                     console.log("error ==============> ", error.response.status);
-                    setData(prev => ({ ...prev, login: false }))
+                    setData(prev => ({ ...prev, loginStatus: false }))
                 }
-
             })
-            .then(function () {
-                // always executed
-            });
 
         return () => {
             console.log("cleanup")
@@ -37,13 +40,11 @@ export function GlobalStateProvider({ children }) {
     }, [])
 
 
-
-
     const [data, setData] = useState({
         user: null,
         darkTheme: false,
         loginStatus: false,
-        token: null
+        anythingElse: null
     })
 
     return (

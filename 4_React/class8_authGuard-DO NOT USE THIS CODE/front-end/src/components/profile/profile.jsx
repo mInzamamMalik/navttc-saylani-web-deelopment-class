@@ -11,13 +11,20 @@ const Profile = () => {
     return (<div>
 
         <h1>Profile</h1>
+
+        <p>this is a protected route</p>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <button onClick={() => {
             setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))
         }}
-
         >toggle</button>
+        {JSON.stringify(globalState)}
 
-        <p>this is a protexted route</p>
 
     </div>)
 }

@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 import React, { useContext } from "react";
-
+import {baseUrl} from "./core"
 
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
@@ -14,6 +14,7 @@ import ForgetPassword from "./components/forgetPassword/forgetPassword"
 
 import Dashboard from "./components/dashboard/dashboard"
 import Profile from "./components/profile/profile"
+import axios from "axios";
 
 import { useGlobalState, useGlobalStateUpdate } from "./context/globalContext"
 
@@ -21,6 +22,21 @@ function App() {
 
   const globalState = useGlobalState()
   const setGlobalState = useGlobalStateUpdate()
+
+  function handleLogout() {
+    axios({
+      url: baseUrl + "/logout",
+      method: "POST",
+      withCredentials: true
+    })
+      .then(function (response) {
+        console.log("response: ", response.data);
+        setGlobalState(prev => {
+          return { ...prev, loginStatus: false }
+        })
+      })
+
+  }
 
 
   const themeStyles = {
@@ -45,7 +61,7 @@ function App() {
             <ul>
               <li style={navStyles}>  <Link to="/">Dashboard</Link>     </li>
               <li style={navStyles}>  <Link to="/profile">Profile</Link>     </li>
-              &nbsp;<button>Logout</button>
+              &nbsp;<button onClick={handleLogout}>Logout</button>
 
             </ul> :
             <ul>
