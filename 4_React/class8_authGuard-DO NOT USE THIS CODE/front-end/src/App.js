@@ -2,7 +2,8 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import React, { useContext } from "react";
 
@@ -38,7 +39,7 @@ function App() {
 
         <nav>
           <ul>
-            <li style={navStyles}>  <Link to="/">login</Link>     </li>
+            <li style={navStyles}>  <Link to="/login">login</Link>     </li>
             <li style={navStyles}>  <Link to="/signup">Signup</Link>     </li>
             <li style={navStyles}>  <Link to="/dashboard">Dashboard</Link>     </li>
             <button style={navStyles} onClick={() => setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))} >toggle</button>
@@ -50,20 +51,41 @@ function App() {
 
 
 
+        {/* public routes */}
         {(globalState.loginStatus === false) ?
+          <>
+            <Route exact={true} path="/login">
+              <Login />
+            </Route>
 
-          <Route exact={true} path="/">
-            <Login />
-          </Route> :
+            <Route path="/signup">
+              <Signup />
+            </Route>
 
-          <Route path="/">
-            <Dashboard />
-          </Route>}
+            <Route path="*">
+              <Redirect to="/login" />
+            </Route>
+          </>
+          : null}
 
 
-        <Route path="/signup">
-          <Signup />
-        </Route>
+        {/* private routes */}
+
+        {(globalState.loginStatus === true) ?
+
+          <>
+            <Route path="/">
+              <Dashboard />
+            </Route>
+
+            <Route path="*">
+              <Dashboard />
+            </Route>
+          </>
+          : null}
+
+
+
 
 
 
