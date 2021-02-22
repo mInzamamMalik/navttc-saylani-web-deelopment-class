@@ -8,7 +8,7 @@ var path = require("path")
 
 const user = [{
     name: "John Doe",
-    email: "John@gmail.com",
+    email: "john@gmail.com",
     password: "123456",
     phone: "+1 234 3454 234",
     gender: "male",
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 app.use(cors({
-    origin: '*',
+    origin: ['http://localhost:3000', "*"],
     credentials: true
 }));
 
@@ -70,7 +70,7 @@ app.post("/signup", (req, res, next) => {
 
 })
 
-app.get("/login", (req, res, next) => {
+app.post("/login", (req, res, next) => {
 
     console.log(req.body)
 
@@ -86,6 +86,7 @@ app.get("/login", (req, res, next) => {
     }
 
     const isExist = user.filter(eachUser => eachUser.email === req.body.email)
+    console.log("isExist: ", isExist);
 
     if(!isExist.length){ // user not exist
         res.status(401).send({
@@ -164,6 +165,11 @@ app.get("/profile", (req, res, next) => {
     res.send({
         profile: user
     })
+})
+
+app.post("/logout", (req, res, next) => {
+    res.cookie('jToken', "");
+    res.send("logout success")
 })
 
 
