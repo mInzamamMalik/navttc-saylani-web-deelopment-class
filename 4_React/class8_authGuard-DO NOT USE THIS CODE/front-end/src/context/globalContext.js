@@ -20,9 +20,9 @@ export function GlobalStateProvider({ children }) {
             })
             .catch(function (error) {
                 // handle error
-                console.log("error ==============> ", error.response.status);
-               
-                if(error.response.status){
+                
+                if(error && error.response && error.response.status){
+                    console.log("error ==============> ", error.response.status);
                     setData(prev => ({ ...prev, login: false }))
                 }
 

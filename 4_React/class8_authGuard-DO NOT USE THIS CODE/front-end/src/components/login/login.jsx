@@ -1,6 +1,6 @@
 import { useGlobalState, useGlobalStateUpdate } from "./../../context/globalContext"
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 function Login() {
 
     const globalState = useGlobalState()
@@ -10,16 +10,16 @@ function Login() {
     function handleLogin() {
         axios({
             url: "https://reqres.in/api/login", // these are fake apis for testing purposes. see more: https://reqres.in/
-            method : "POST", 
+            method: "POST",
             data: {
                 "email": "eve.holt@reqres.in",
                 "password": "cityslicka"
             }
-        }).then(function(response){
+        }).then(function (response) {
             console.log("response: ", response.data);
 
-            setGlobalState(prev=>{
-                return {...prev, loginStatus: true, token: response.data.token}
+            setGlobalState(prev => {
+                return { ...prev, loginStatus: true, token: response.data.token }
             })
 
         })
@@ -35,6 +35,11 @@ function Login() {
             <br />
 
             <button onClick={handleLogin}>Log in</button>
+            <br/>
+            <Link to="/forget_password">forget password</Link>
+            <br/>
+            <br/>
+
 
             {JSON.stringify(globalState)}
         </div>

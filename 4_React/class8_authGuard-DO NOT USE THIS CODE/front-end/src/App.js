@@ -10,7 +10,10 @@ import React, { useContext } from "react";
 
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
+import ForgetPassword from "./components/forgetPassword/forgetPassword"
+
 import Dashboard from "./components/dashboard/dashboard"
+import Profile from "./components/profile/profile"
 
 import { useGlobalState, useGlobalStateUpdate } from "./context/globalContext"
 
@@ -38,15 +41,21 @@ function App() {
       <Router>
 
         <nav>
-          <ul>
-            <li style={navStyles}>  <Link to="/login">login</Link>     </li>
-            <li style={navStyles}>  <Link to="/signup">Signup</Link>     </li>
-            <li style={navStyles}>  <Link to="/dashboard">Dashboard</Link>     </li>
-            <button style={navStyles} onClick={() => setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))} >toggle</button>
+          {(globalState.loginStatus === true) ?
+            <ul>
+              <li style={navStyles}>  <Link to="/">Dashboard</Link>     </li>
+              <li style={navStyles}>  <Link to="/profile">Profile</Link>     </li>
+              &nbsp;<button>Logout</button>
 
-            {"===>" + JSON.stringify(globalState)}
+            </ul> :
+            <ul>
+              <li style={navStyles}>  <Link to="/">login</Link>     </li>
+              <li style={navStyles}>  <Link to="/signup">Signup</Link>     </li>
+            </ul>}
 
-          </ul>
+          {/* <button style={navStyles} onClick={() => setGlobalState(prev => ({ ...prev, darkTheme: !prev.darkTheme }))} >toggle</button>
+          {"===>" + JSON.stringify(globalState)} */}
+
         </nav>
 
 
@@ -54,16 +63,19 @@ function App() {
         {/* public routes */}
         {(globalState.loginStatus === false) ?
           <>
-            <Route exact={true} path="/login">
+            <Route exact={true} path="/">
               <Login />
             </Route>
 
             <Route path="/signup">
               <Signup />
             </Route>
+            <Route path="/forget_password">
+              <ForgetPassword />
+            </Route>
 
             <Route path="*">
-              <Redirect to="/login" />
+              <Redirect to="/" />
             </Route>
           </>
           : null}
@@ -74,12 +86,16 @@ function App() {
         {(globalState.loginStatus === true) ?
 
           <>
-            <Route path="/">
+            <Route exact path="/">
               <Dashboard />
             </Route>
 
+            <Route path="/profile">
+              <Profile />
+            </Route>
+
             <Route path="*">
-              <Dashboard />
+              <Redirect to="/" />
             </Route>
           </>
           : null}
