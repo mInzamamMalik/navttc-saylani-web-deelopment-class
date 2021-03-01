@@ -86,6 +86,7 @@ function App() {
             <Route path="/signup">
               <Signup />
             </Route>
+
             <Route path="/forget_password">
               <ForgetPassword />
             </Route>
@@ -98,7 +99,6 @@ function App() {
 
 
         {/* private routes */}
-
         {(globalState.loginStatus === true) ?
 
           <>

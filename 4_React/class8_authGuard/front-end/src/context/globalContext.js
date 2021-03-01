@@ -20,7 +20,7 @@ export function GlobalStateProvider({ children }) {
         })
             .then(function (response) {
                 // handle success
-                console.log("response: ", response.status);
+                console.log("response jhanzaib: ", response.status);
                 if (response.status === 200) {
                     setData(prev => ({ ...prev, loginStatus: true }))
                 }
