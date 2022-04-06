@@ -8,20 +8,7 @@
 
 
 
-
 ## Successful students
----
-Coming soon
-
-
-<br>
-<br>
-<br>
-<br>
-
-
-## Enrolled Students:
----
 
 | Students Name            | Github Profile                                                                              |
 | ------------------------ | ------------------------------------------------------------------------------------------- |
